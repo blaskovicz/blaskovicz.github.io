@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Magic Card Browser</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- app:css -->
+    <link rel='stylesheet' href='main.css'>
+    <!-- endapp -->
+  </head>
+  <body ng-app='opengathering'>
+    <!-- bower:js -->
+    <script src='bower_components/jquery/dist/jquery.js'></script>
+    <script src='bower_components/bootstrap/dist/js/bootstrap.js'></script>
+    <script src='bower_components/angular/angular.js'></script>
+    <!-- endbower -->
+    <!-- app:js -->
+    <script src='app.js'></script>
+    <!-- endapp -->
+    <div class="container" ng-controller="WelcomeController">
+      <input type="text" ng-model="filter.rawText"> 
+      <button type="button" ng-disabled="!loaded" ng-click="filterCards()">Query</button>
+      <!-- TODO directive -->
+      <div ng-repeat="card in cards" class="card-display" ng-class="{expanded: card.detailedView}">
+        <div class="header">
+          <span class="card-name" ng-bind='card.name'></span>
+          <span class="cmc" ng-bind='card.cmc'></span>
+        </div>
+        <div class="body">
+          <div class="icon-pane">
+            <img
+              ng-click="card.detailedView = ! card.detailedView"
+              ng-src="http://mtgimage.com/card/{{card.imageName}}.jpg">
+          </div>
+          <div class="more-info">
+            <table>
+              <tr></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
