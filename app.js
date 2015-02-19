@@ -1,28 +1,27 @@
 (function() {
   var app;
 
-  app = angular.module("opengathering", []);
+  app = angular.module("opengathering", ["firebase"]);
 
   angular.module("opengathering").controller("WelcomeController", [
     "$scope", "$filter", "$http", "$log", function($scope, $filter, $http, $log) {
-      var allCards, matchedCards, route;
-      route = "http://mtgjson.com/json/AllCards.json";
+      var allCards, firebase, matchedCards;
+      firebase = new Firebase("https://blazing-torch-8857.firebaseio.com/");
       $log.debug("loading data");
       allCards = [];
       matchedCards = [];
-      $http.get(route).success(function(data) {
-        var card, cardName, parsedCards;
+      firebase.child("cards").on("value", function(data) {
+        var card, cardName, parsedCards, _ref;
         $log.debug("success!");
         parsedCards = [];
-        for (cardName in data) {
-          card = data[cardName];
+        _ref = data.val();
+        for (cardName in _ref) {
+          card = _ref[cardName];
           card.cardName = cardName;
           parsedCards.push(card);
         }
         allCards = parsedCards;
         return $scope.loaded = true;
-      }).error(function(data) {
-        return $log.error("an error occurred: ", data);
       });
       $scope.filter = {
         rawText: ""

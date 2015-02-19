@@ -1,7 +1,7 @@
 *.swp
 .sass-cache/
+node_modules/
+npm-debug.log
 bower_components/
 main.css*
-node_modules/
 app.js
-npm-debug.log
