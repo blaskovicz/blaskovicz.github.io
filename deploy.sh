@@ -28,6 +28,8 @@ ROOT_DIR=`pwd`
 git clone --branch=$GH_PAGES_BRANCH --depth 1 $GITHUB_REPO $REMOTE_DIR > /dev/null
 pushd $REMOTE_DIR > /dev/null
 rsync -r \
+  --exclude='.gitignore'
+  --exclude='*.swp' \
   --exclude=deploy.sh \
   --exclude='*.pl' \
   --exclude=node_modules \
@@ -36,6 +38,8 @@ rsync -r \
   --exclude=.sass-cache \
   --delete \
   $ROOT_DIR/ ./
+
+#rm .gitignore
 
 # Add, commit, and push files to the GitHub Pages branch
 git add -A
