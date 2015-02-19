@@ -1,9 +1,14 @@
+branches:
+  only: src
 language: node_js
 before_install:
-  - gem install sass
+- gem install sass
 node_js:
-  - "0.10"
+- '0.10'
 before_script:
-  - 'npm install -g bower grunt-cli'
-  - 'bower install'
+- npm install -g bower grunt-cli
+- bower install
 script: grunt build
+env:
+  global:
+    secure: olU0h6q9MgqLMuqxUjXuKp39LEhFmopY84bET8xvnJajoBsE7z9KDPkoRCXpKQ2r1Fjel4voVE/kqRc/akBQ3JD/kLh9wMJfeHJN4woaPv2dnvvSc/9DTKWxHL5z4vNjZvl+GmdJIIuFldqlzJG08Su+a4Qy3MckHmr8ppa2VrM=
