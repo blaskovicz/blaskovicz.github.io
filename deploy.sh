@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # https://github.com/iKevinY/iKevinY.github.io/blob/src/deploy.sh
-set -x
 
 GH_PAGES_BRANCH=master
 TARGET_REPO=blaskovicz/blaskovicz.github.io
