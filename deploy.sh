@@ -28,7 +28,7 @@ ROOT_DIR=`pwd`
 git clone --branch=$GH_PAGES_BRANCH --depth 1 $GITHUB_REPO $REMOTE_DIR > /dev/null
 pushd $REMOTE_DIR > /dev/null
 rsync -r \
-  --exclude='.gitignore'
+  --exclude='.gitignore' \
   --exclude='*.swp' \
   --exclude=deploy.sh \
   --exclude='*.pl' \
