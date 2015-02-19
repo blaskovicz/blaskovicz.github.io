@@ -27,6 +27,7 @@ rsync -r \
   --exclude node_modules \
   --exclude='.gems*' \
   --exclude=.git \
+  --exclude=.sass-cache \
   --delete $ROOT_DIR/ ./
 
 rm .gitignore
