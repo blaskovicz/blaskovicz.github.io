@@ -8,6 +8,8 @@ GH_PAGES_BRANCH=master
 TARGET_REPO=blaskovicz/blaskovicz.github.io
 REMOTE_DIR=../remote-site
 
+rm -rf $REMOTE_DIR
+
 if [ "$TRAVIS" == "true" ]; then
   echo "Deploying site to GitHub Pages via Travis CI."
   git config --global user.email "travis@travis-ci.org"
@@ -28,7 +30,7 @@ pushd $REMOTE_DIR > /dev/null
 rsync -r \
   --exclude=deploy.sh \
   --exclude='*.pl' \
-  --exclude-node_modules \
+  --exclude=node_modules \
   --exclude='.gems*' \
   --exclude=.git \
   --exclude=.sass-cache \
