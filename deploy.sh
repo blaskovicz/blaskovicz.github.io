@@ -29,6 +29,8 @@ rsync -r \
   --exclude=.git \
   --delete $ROOT_DIR/ ./
 
+rm .gitignore
+
 # Add, commit, and push files to the GitHub Pages branch
 git add -A
 git status -s
