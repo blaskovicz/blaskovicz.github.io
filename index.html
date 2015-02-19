@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
     <!-- endbower -->
     <!-- app:css -->
     <link rel='stylesheet' href='main.css'>
@@ -17,6 +17,8 @@
     <script src='bower_components/jquery/dist/jquery.js'></script>
     <script src='bower_components/bootstrap/dist/js/bootstrap.js'></script>
     <script src='bower_components/angular/angular.js'></script>
+    <script src='bower_components/firebase/firebase.js'></script>
+    <script src='bower_components/angularfire/dist/angularfire.js'></script>
     <!-- endbower -->
     <!-- app:js -->
     <script src='app.js'></script>
@@ -27,19 +29,17 @@
       <!-- TODO directive -->
       <div ng-repeat="card in cards" class="card-display" ng-class="{expanded: card.detailedView}">
         <div class="header">
-          <span class="card-name" ng-bind='card.name'></span>
-          <span class="cmc" ng-bind='card.cmc'></span>
+          [<span class="name" ng-bind='card.name'></span>]
+          [<span class="type" ng-bind='card.type'></span>]
+          [<span class="cost" ng-bind='card.manaCost'></span>]
         </div>
-        <div class="body">
+        <div class="body clearfix">
           <div class="icon-pane">
             <img
               ng-click="card.detailedView = ! card.detailedView"
               ng-src="http://mtgimage.com/card/{{card.imageName}}.jpg">
           </div>
-          <div class="more-info">
-            <table>
-              <tr></tr>
-            </table>
+          <div class="more-info" ng-bind="card.text">
           </div>
         </div>
       </div>
