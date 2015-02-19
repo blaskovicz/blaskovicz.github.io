@@ -28,9 +28,8 @@ rsync -r \
   --exclude='.gems*' \
   --exclude=.git \
   --exclude=.sass-cache \
-  --delete $ROOT_DIR/ ./
-
-rm .gitignore
+  --delete \
+  $ROOT_DIR/ ./
 
 # Add, commit, and push files to the GitHub Pages branch
 git add -A
