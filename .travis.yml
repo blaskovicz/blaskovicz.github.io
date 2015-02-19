@@ -12,3 +12,4 @@ script: grunt build
 env:
   global:
     secure: olU0h6q9MgqLMuqxUjXuKp39LEhFmopY84bET8xvnJajoBsE7z9KDPkoRCXpKQ2r1Fjel4voVE/kqRc/akBQ3JD/kLh9wMJfeHJN4woaPv2dnvvSc/9DTKWxHL5z4vNjZvl+GmdJIIuFldqlzJG08Su+a4Qy3MckHmr8ppa2VrM=
+after_success: bash deploy.sh
